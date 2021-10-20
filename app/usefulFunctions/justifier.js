@@ -1,3 +1,5 @@
+// This object shall contain all the logic related to the text justification
+
 const justifier = {
   ultimateJustificationFunction(textToJustify) {
     // blabla

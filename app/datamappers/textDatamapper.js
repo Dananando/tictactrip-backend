@@ -7,7 +7,7 @@ const textDatamapper = {
   async createAndJustify(text) {
     // Prepared query to avoid SQL injection and to insert the user data
     const query = {
-      text: 'INSERT INTO "text" (content) VALUES ($1) RETURNING id, email;',
+      text: 'INSERT INTO "text" (content) VALUES ($1) RETURNING id, content;',
       values: [text.content],
     };
 

@@ -1,6 +1,6 @@
 const textDatamapper = require('../datamappers/textDatamapper');
 
-const text = {
+const textController = {
   async createAndJustify(request, response, next) {
     const newTextBody = request.body;
     try {
@@ -31,4 +31,4 @@ const text = {
   },
 };
 
-module.exports = text;
+module.exports = textController;
