@@ -1,6 +1,49 @@
 > It’s not a bug – it’s an undocumented feature
 > - Napoleon
 
-# What is this repo about
+# What is this repository about
 
-That repo aims at solving this [challenge](https://docs.google.com/document/d/1DW2fKidrl5qV1ZvpmysqEMpoqbYjaRQhOJneYnfhzNs/edit).
+That repository aims at solving this [challenge](https://docs.google.com/document/d/1DW2fKidrl5qV1ZvpmysqEMpoqbYjaRQhOJneYnfhzNs/edit).
+
+# How to use this repository
+
+## Clone it
+
+```bash
+git clone git@github.com:Dananando/tictactrip-backend.git
+```
+
+## Install the relevant dependancies
+
+You will need dotenv, pg, express, jsonwebtoken.
+
+```bash
+npm install
+```
+
+## Set up the database
+
+First connect to postgres
+```bash
+sudo -i -u postgres
+```
+
+Type :
+```bash
+psql
+```
+
+Create a user
+```bash
+CREATE ROLE tictactrip WITH LOGIN PASSWORD 'password';
+```
+
+Create your database
+```bash
+CREATE DATABASE tictactrip OWNER userName;
+```
+
+Import relevant data
+```bash
+psql -U tictactrip -f .data/data.sql
+```
