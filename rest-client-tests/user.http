@@ -1,0 +1,20 @@
+### Add new user (json style)
+POST http://localhost:3333/v1/api/signup
+Content-Type: application/json
+
+{
+    "email": "test@andria.com",
+    "password": "password"
+}
+
+### Log in
+POST http://localhost:3333/v1/api/token
+Content-Type: application/json
+
+{
+    "email": "lili@andria.com",
+    "password": "password"
+}
+
+### Delete a user
+DELETE http://localhost:3333/v1/api/user/4

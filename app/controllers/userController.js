@@ -5,6 +5,7 @@ const userController = {
     const newUserBody = request.body;
     try {
       const newUser = await userDatamapper.create(newUserBody);
+      console.log(newUser);
       if (newUserBody) {
         response.status(201).json(newUser);
       } else {

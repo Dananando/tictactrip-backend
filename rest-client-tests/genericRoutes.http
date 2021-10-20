@@ -1,0 +1,5 @@
+### Test page
+GET  http://localhost:3333/v1/api
+
+### Test 404
+GET  http://localhost:3333/v1/qldyur

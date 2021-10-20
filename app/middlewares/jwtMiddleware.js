@@ -12,7 +12,7 @@ const jwtService = {
     },
     jwtService.JWT_SIGN_SECRET,
     {
-      expiresIn: '24h',
+      expiresIn: '1h',
     });
   },
 

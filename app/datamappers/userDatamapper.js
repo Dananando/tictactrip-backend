@@ -10,6 +10,7 @@ const userDatamapper = {
     // configuring the salt then hashing the password
     const salt = bcrypt.genSaltSync();
     const hashedPassword = bcrypt.hashSync(user.password, salt);
+    // console.log(`Salt : ${salt} and hashed password: ${hashedPassword}`);
 
     // Prepared query to avoid SQL injection and to insert the user data
     const query = {
@@ -31,8 +32,8 @@ const userDatamapper = {
   // Allowing (or not) the user to login
   async login(user) {
     const query = {
-      text: 'SELECT * FROM "user" WHERE username = $1',
-      values: [user.userName],
+      text: 'SELECT * FROM "user" WHERE email = $1',
+      values: [user.email],
     };
 
     try {
@@ -46,10 +47,13 @@ const userDatamapper = {
         if (passwordMatch === true) {
           const token = {
             logged: true,
-            email: jwtService.generateTokenForUser(foundUser),
+            id: jwtService.generateTokenForUser(foundUser),
+            email: user.email,
           };
           // console.log('The token : ', token);
-          return token;
+          return {
+            email: token.email,
+          };
         }
         return 'Wrong password. Please try again.';
       }
