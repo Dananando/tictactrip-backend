@@ -5,14 +5,15 @@ require('dotenv').config();
 const jwtService = {
   JWT_SIGN_SECRET: process.env.JWT_SIGN_SECRET,
 
-  // Generate a token so that the user can login. It is valid for 1h
+  // Generate a token so that the user can login. It is valid for 24h
   generateTokenForUser(userData) {
     return jwt.sign({
       userEmail: userData.email,
+      // tokenBirthDate: INTEGRATE the date of creation of the token
     },
     jwtService.JWT_SIGN_SECRET,
     {
-      expiresIn: '1h',
+      expiresIn: '24h',
     });
   },
 
@@ -33,7 +34,7 @@ const jwtService = {
     }
 
     // We compare the token in the headers with the secret key of our application
-    jwt.verify(token, jwtService.JWT_SIGN_SECRET, (error, userID) => {
+    jwt.verify(token, jwtService.JWT_SIGN_SECRET, (error, userEmail) => {
       // If there is an error, the token in the headers does not "match" with the secret key
       // We return an error
       if (error) {
@@ -41,7 +42,9 @@ const jwtService = {
         response.status(403).json('Denied');
       }
       // If there is no error, we are fine. Let's go to the next middleware
-      request.userID = userID;
+      request.userEmail = userEmail;
+      // HERE CHECK IF THE DATE OF CREATION OF THE TOKEN
+      // CHECK THE NUMBER OF WORDS ALREADY ENTERED
       next();
     });
   },

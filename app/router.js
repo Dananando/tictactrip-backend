@@ -1,7 +1,13 @@
 const { Router } = require('express');
-const userController = require('./controllers/userController');
 
 const router = Router();
+
+// The controllers
+const userController = require('./controllers/userController');
+const textController = require('./controllers/textController');
+
+// The authentication middleware
+const jwtService = require('./middlewares/jwtMiddleware');
 
 // Test page
 router.get('/api', (_, response) => {
@@ -18,7 +24,16 @@ router.post('/api/signup', userController.create);
 router.post('/api/token', userController.login);
 
 // Delete a user endpoint
-router.delete('/api/user/:id', userController.delete);
+router.delete('/api/user/:id', jwtService.authenticateToken, userController.delete);
+
+/* --------------
+ TEXT ROUTES - Routes handling the text to justify
+------------------*/
+// Creating and justifying the text
+router.post('/api/justify', jwtService.authenticateToken, textController.createAndJustify);
+
+// Delete a text in the database
+router.delete('/api/text/:id', jwtService.authenticateToken, textController.delete);
 
 /* --------------
  404
