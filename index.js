@@ -1,5 +1,6 @@
 // Require and setup of express
 const express = require('express');
+
 const app = express();
 
 // dotenv to use the .env file
@@ -20,5 +21,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/v1', router);
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}.`)
+  console.log(`Server running on http://localhost:${PORT}.`);
 });
