@@ -1,4 +1,4 @@
-
+-- Import some data in the DB
 BEGIN;
 
 INSERT INTO "text" (content)

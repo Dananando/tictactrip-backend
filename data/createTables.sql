@@ -1,4 +1,4 @@
-
+-- Creation of the tables necessary in the DB
 BEGIN;
 
 CREATE TABLE "text" (

@@ -1,3 +1,4 @@
+-- Reset the DB if needed
 
 BEGIN;
 
