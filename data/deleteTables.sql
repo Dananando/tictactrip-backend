@@ -1,0 +1,7 @@
+
+BEGIN;
+
+DROP TABLE "text";
+DROP TABLE "user";
+
+COMMIT;

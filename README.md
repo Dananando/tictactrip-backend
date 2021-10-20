@@ -43,7 +43,13 @@ Create your database
 CREATE DATABASE tictactrip OWNER userName;
 ```
 
-Import relevant data
+Create tables and import relevant data
 ```bash
-psql -U tictactrip -f .data/data.sql
+psql -U tictactrip -f ./data/createTable.sql
+psql -U tictactrip -f ./data/importData.sql
+```
+
+If you want to start over with the tables, type:
+```bash
+psql -U tictactrip -f ./data/deleteData.sql
 ```
