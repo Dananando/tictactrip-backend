@@ -11,7 +11,7 @@ const cors = require('cors');
 
 // Swagger import and configuration below for API documentation
 const expressSwagger = require('express-swagger-generator')(app);
-const swaggerOptions = require('./app/swagger-options/swagger-options');
+const options = require('./app/swagger-options/swagger-options');
 
 // dotenv to use the .env file
 require('dotenv').config();
@@ -22,7 +22,7 @@ const router = require('./app/router');
 const PORT = process.env.PORT || 4444;
 
 // Using our swagger options in order to document the app
-expressSwagger(swaggerOptions);
+expressSwagger(options);
 
 // Any app can access our API /!\
 app.use(cors({

@@ -18,10 +18,24 @@ router.get('/api', (_, response) => {
 /* --------------
  AUTHENTICATION/USERS ROUTES
 ------------------*/
-// User creation endpoint
+/**
+   * User creation endpoint
+   * @route POST /api/signup
+   * @group User - Operations about users
+   * @param {string} email.body.required - email of the created user - eg: user@domain.com
+   * @param {string} password.body.required - user's defined password.
+   * @returns {object} 200 - An object containing user info
+ */
 router.post('/api/signup', userController.create);
 
-// Authentication endpoint
+/**
+   * Authentication endpoint
+   * @route POST /api/token
+   * @group User - Operations about users
+   * @param {string} email.body.required - email that wants to connect - eg: user@domain.com
+   * @param {string} password.body.required - user password.
+   * @returns {object} 200 - An object containing token
+ */
 router.post('/api/token', userController.login);
 
 // Delete a user endpoint

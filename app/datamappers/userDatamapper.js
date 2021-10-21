@@ -10,7 +10,6 @@ const userDatamapper = {
     // configuring the salt then hashing the password
     const salt = bcrypt.genSaltSync();
     const hashedPassword = bcrypt.hashSync(user.password, salt);
-    // console.log(`Salt : ${salt} and hashed password: ${hashedPassword}`);
 
     // Prepared query to avoid SQL injection and to insert the user data
     const query = {

@@ -1,3 +1,6 @@
+// dotenv to use the .env file
+require('dotenv').config();
+
 const options = {
   swaggerDefinition: {
     info: {
@@ -14,7 +17,7 @@ const options = {
     schemes: ['http', 'https'],
   },
   basedir: __dirname, // app absolute path
-  files: ['./app/**/*.js', './app/*.js'], // Path to the API handle folder
+  files: ['../**/*.js', '../*.js'], // Path to the API handle folder
 };
 
 module.exports = options;
