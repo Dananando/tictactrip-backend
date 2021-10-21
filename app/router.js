@@ -39,7 +39,7 @@ router.post('/api/signup', userController.create);
 router.post('/api/token', userController.login);
 
 /**
-   * Delete a user endpoint
+   * Delete a user endpoint (must authenticate first)
    * @route DELETE /api/user/{id}
    * @group User - Operations about users
    * @param {number} id.path.required - id of the user you want to delete
@@ -51,7 +51,7 @@ router.delete('/api/user/:id', jwtService.authenticateToken, userController.dele
  TEXT ROUTES - Routes handling the text to justify
 ------------------*/
 /**
-   * Create and justify a text endpoint
+   * Create and justify a text endpoint (must authenticate first)
    * @route POST /api/justify
    * @group Text - Operations about text to justify
    * @param {string} text.body.required - text to justify
@@ -60,7 +60,7 @@ router.delete('/api/user/:id', jwtService.authenticateToken, userController.dele
 router.post('/api/justify', /* jwtService.authenticateToken, */ textController.createAndJustify);
 
 /**
-   * Delete a text in the database
+   * Delete a text in the database (must authenticate first)
    * @route DELETE /api/text/{id}
    * @group Text - Operations about text to justify
    * @param {number} id.path.required - id of the text you want to delete
