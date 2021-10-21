@@ -43,6 +43,7 @@ const jwtService = {
       }
       // If there is no error, we are fine. Let's go to the next middleware
       request.userEmail = userEmail;
+      console.log(userEmail);
       // HERE CHECK IF THE DATE OF CREATION OF THE TOKEN
       // CHECK THE NUMBER OF WORDS ALREADY ENTERED
       next();

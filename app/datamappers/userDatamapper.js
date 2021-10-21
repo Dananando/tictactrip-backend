@@ -53,6 +53,7 @@ const userDatamapper = {
           // console.log('The token : ', token);
           return {
             email: token.email,
+            id: token.id,
           };
         }
         return 'Wrong password. Please try again.';

@@ -2,7 +2,8 @@ const textDatamapper = require('../datamappers/textDatamapper');
 
 const textController = {
   async createAndJustify(request, response, next) {
-    const newTextBody = request.body;
+    const newTextBody = JSON.parse(request.body);
+    console.log(newTextBody);
     try {
       const newText = await textDatamapper.createAndJustify(newTextBody);
       if (newText) {

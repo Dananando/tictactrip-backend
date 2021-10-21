@@ -7,6 +7,7 @@ const userController = require('./controllers/userController');
 const textController = require('./controllers/textController');
 
 // The authentication middleware
+// We chain this middleware on our routes everytime we want to check that a user is connected!
 const jwtService = require('./middlewares/jwtMiddleware');
 
 // Test page
@@ -30,7 +31,7 @@ router.delete('/api/user/:id', jwtService.authenticateToken, userController.dele
  TEXT ROUTES - Routes handling the text to justify
 ------------------*/
 // Creating and justifying the text
-router.post('/api/justify', jwtService.authenticateToken, textController.createAndJustify);
+router.post('/api/justify', /* jwtService.authenticateToken, */ textController.createAndJustify);
 
 // Delete a text in the database
 router.delete('/api/text/:id', jwtService.authenticateToken, textController.delete);

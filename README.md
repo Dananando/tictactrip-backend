@@ -24,26 +24,31 @@ npm install
 ## Set up the database
 
 1. First connect to postgres
+
 ```bash
 sudo -i -u postgres
 ```
 
 2. Then you must type :
+
 ```bash
 psql
 ```
 
 3. Create a user
+
 ```bash
 CREATE ROLE tictactrip WITH LOGIN PASSWORD 'password';
 ```
 
 4. Create your database
+
 ```bash
 CREATE DATABASE tictactrip OWNER userName;
 ```
 
-5. Please note that in your .env, your PG_URL will look like this:
+5. Please note that in your .env, your PG_URL would look like this:
+
 ```
 PG_URL=postgresql://tictactrip:tictactrip@localhost:5432/tictactrip
 ```
@@ -59,3 +64,9 @@ psql -U tictactrip -f ./data/importData.sql
 psql -U tictactrip -f ./data/deleteData.sql
 ```
 
+## Set up of the .env file
+
+Do not forget to set up the .env file :
+- Input a PORT number
+- Input a PG_URL (e.g. PG_URL=postgresql://tictactrip:tictactrip@localhost:5432/tictactrip)
+- Input a JWT_SIGN_SECRET (e.g. you can use ```require('crypto').randomBytes(64).toString('hex');``` in order to generate one randomly)
