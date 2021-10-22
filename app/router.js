@@ -10,6 +10,12 @@ const textController = require('./controllers/textController');
 // We chain this middleware on our routes everytime we want to check that a user is connected!
 const jwtService = require('./middlewares/jwtMiddleware');
 
+// MW checking if the token has expired and if the word count is above 80k
+const tokenCheck = require('./middlewares/tokenCheck');
+
+// MW inputing the character count in request.userEmail.charCount
+const characterCountMiddleware = require('./middlewares/characterCountMiddleware');
+
 // Test page
 router.get('/api', (_, response) => {
   response.send('It\'s running');
@@ -57,7 +63,7 @@ router.delete('/api/user/:id', jwtService.authenticateToken, userController.dele
    * @param {string} text.body.required - text to justify
    * @returns {string} 201 - Returns the justified string
  */
-router.post('/api/justify', jwtService.authenticateToken, textController.createAndJustify);
+router.post('/api/justify', jwtService.authenticateToken, characterCountMiddleware.countingCharacters, tokenCheck.charAndExpirationCheck, textController.createAndJustify);
 
 /**
    * Delete a text in the database (must authenticate first)

@@ -11,10 +11,10 @@ const jwtService = {
       userEmail: userData.email,
       // tokenBirthDate: INTEGRATE the date of creation of the token
     },
-    jwtService.JWT_SIGN_SECRET,
-    {
-      expiresIn: '24h',
-    });
+      jwtService.JWT_SIGN_SECRET,
+      {
+        expiresIn: '24h',
+      });
   },
 
   authenticateToken(request, response, next) {
@@ -22,12 +22,12 @@ const jwtService = {
     // it is supposed to contain the token that was created after log in
     const authHeader = request.headers.authorization;
     let token = [];
-    console.log('authHeader : ', authHeader);
+    // console.log('authHeader : ', authHeader);
     if (authHeader) {
       token = authHeader.split(' ')[1];
     }
 
-    console.log(token);
+    // console.log(token);
 
     if (token.length === 0) {
       //   console.log('Denied');
@@ -43,8 +43,11 @@ const jwtService = {
         response.status(403).json('Denied');
       }
       // If there is no error, we are fine. Let's go to the next middleware
-      request.userEmail = userEmail;
-      console.log('jwtmw authenticate', request.userEmail);
+      if (!request.session.userEmail) {
+        console.log('Fail?');
+        request.session.userEmail = userEmail;
+      }
+      console.log('jwtmw authenticate', request.session.userEmail);
       // HERE CHECK IF THE DATE OF CREATION OF THE TOKEN
       // CHECK THE NUMBER OF WORDS ALREADY ENTERED
       next();

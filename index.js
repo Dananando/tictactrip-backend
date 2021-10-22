@@ -9,6 +9,9 @@ const bodyParser = require('body-parser');
 // CORS MW
 const cors = require('cors');
 
+// Express-session
+const session = require('express-session');
+
 // Swagger import and configuration below for API documentation
 const expressSwagger = require('express-swagger-generator')(app);
 const options = require('./app/swagger-options/swagger-options');
@@ -23,6 +26,14 @@ const PORT = process.env.PORT || 4444;
 
 // Using our swagger options in order to document the app
 expressSwagger(options);
+
+// Use of session to store the word count
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+  // cookie: { secure: true }
+}));
 
 // Any app can access our API /!\
 app.use(cors({
