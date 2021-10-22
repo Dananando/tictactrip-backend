@@ -8,7 +8,8 @@ const options = {
       title: 'Tictactrip justify app',
       version: '1.0.0',
     },
-    host: `localhost:${process.env.PORT}`,
+    // host: `localhost:${process.env.PORT}`,
+    host: 'tictactrip-backend.herokuapp.com',
     basePath: '/v1',
     produces: [
       'application/json',
