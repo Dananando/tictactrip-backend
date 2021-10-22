@@ -78,3 +78,7 @@ npm run dev
 ```
 
 Insert some fake data thanks to the files in the [rest-client-tests folder](./rest-client-tests)
+
+## Documentation
+
+Documentation can be quickly seen here : https://tictactrip-backend.herokuapp.com/api-docs#/
