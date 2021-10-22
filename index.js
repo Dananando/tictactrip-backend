@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 4444;
 // Using our swagger options in order to document the app
 expressSwagger(options);
 
-// Use of session to store the word count
+// Use of session to store the word count and all the token infos
 app.use(session({
   secret: 'secret',
   resave: true,

@@ -69,3 +69,12 @@ Do not forget to set up the .env file :
 - Input a PORT number
 - Input a PG_URL (e.g. PG_URL=postgresql://tictactrip:tictactrip@localhost:5432/tictactrip)
 - Input a JWT_SIGN_SECRET (e.g. you can use ```require('crypto').randomBytes(64).toString('hex');``` in order to generate one randomly)
+
+## Insert some fake data to play
+
+Use this command to run the server in development mode 
+```bash
+npm run dev
+```
+
+Insert some fake data thanks to the files in the [rest-client-tests folder](./rest-client-tests)

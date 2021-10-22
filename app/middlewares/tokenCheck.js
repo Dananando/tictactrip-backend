@@ -11,6 +11,8 @@ const tokenCheck = {
       if (Number(request.session.userEmail.charCount) <= 80000) {
         next();
       } else {
+        // We cap the charCount at 80000 and ask for payment
+        request.session.userEmail.charCount = 80000;
         // $ £ € Ask for payment! $ £ €
         response.status(402).json('Payment Required')
       }
