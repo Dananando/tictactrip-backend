@@ -53,15 +53,14 @@ CREATE DATABASE tictactrip OWNER userName;
 PG_URL=postgresql://tictactrip:tictactrip@localhost:5432/tictactrip
 ```
 
-6. a. Create tables and import relevant data
+1. a. Create tables
 ```bash
 psql -U tictactrip -f ./data/createTable.sql
-psql -U tictactrip -f ./data/importData.sql
 ```
 
 6. b. If you want to start over with the tables and delete them, type:
 ```bash
-psql -U tictactrip -f ./data/deleteData.sql
+psql -U tictactrip -f ./data/deleteTables.sql
 ```
 
 ## Set up of the .env file

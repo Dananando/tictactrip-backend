@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "mocha"
+    "test-user": "mocha ./tests/user.js"
   },
   "repository": {
     "type": "git",

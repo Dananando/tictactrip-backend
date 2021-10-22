@@ -13,7 +13,7 @@ describe('User signup, authentication, deletion methods', () => {
   describe('POST /api/signup', () => {
     it('It should create a new user and return an object containing its mail', (done) => {
       const newUser = {
-        email: 'test2@test.com',
+        email: 'test5@test.com',
         password: 'testpassword',
       };
       chai.request(server)
@@ -24,8 +24,8 @@ describe('User signup, authentication, deletion methods', () => {
           response.body.should.be.a('object');
           response.body.should.have.property('id');
           response.body.should.have.property('email');
-          response.body.should.have.property('id').eq(6);
-          response.body.should.have.property('email').eq('test2@test.com');
+          response.body.should.have.property('id').eq(11);
+          response.body.should.have.property('email').eq('test5@test.com');
           done();
         });
     });

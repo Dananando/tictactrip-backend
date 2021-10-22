@@ -1,5 +1,6 @@
 ### Justify an input text
 POST http://localhost:3333/v1/api/justify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRW1haWwiOiJsaWxpQGFuZHJpYS5jb20iLCJpYXQiOjE2MzQ5MTE0NzUsImV4cCI6MTYzNDk5Nzg3NX0.7CZ0FIZc9-LFC29f0AmrrBIl4KvOQHEw37HT3yZc5n0
 Content-Type: text/plain
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

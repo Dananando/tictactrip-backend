@@ -3,7 +3,7 @@ POST http://localhost:3333/v1/api/signup
 Content-Type: application/json
 
 {
-    "email": "test@andria.com",
+    "email": "lili@andria.com",
     "password": "password"
 }
 

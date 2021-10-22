@@ -57,7 +57,7 @@ router.delete('/api/user/:id', jwtService.authenticateToken, userController.dele
    * @param {string} text.body.required - text to justify
    * @returns {string} 201 - Returns the justified string
  */
-router.post('/api/justify', /* jwtService.authenticateToken, */ textController.createAndJustify);
+router.post('/api/justify', jwtService.authenticateToken, textController.createAndJustify);
 
 /**
    * Delete a text in the database (must authenticate first)

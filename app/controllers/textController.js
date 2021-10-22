@@ -3,11 +3,11 @@ const textDatamapper = require('../datamappers/textDatamapper');
 const textController = {
   async createAndJustify(request, response, next) {
     const newTextBody = JSON.parse(request.body);
-    console.log(newTextBody);
+    // console.log(newTextBody);
     try {
       const newText = await textDatamapper.createAndJustify(newTextBody);
       if (newText) {
-        response.status(201).json(newText);
+        response.status(201).json(`${newText}`);
       } else {
         next();
       }
